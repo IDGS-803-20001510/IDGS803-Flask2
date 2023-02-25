@@ -1,43 +1,43 @@
 {% extends "layout.html" %}
 
 {% block content %}
-{% from "_macros.html" import render_input2 %}
-<form name="form2" method="post">
+<form action="/cajasD" method="POST">
     <div class="control_group">
-        <div class="controls">
-            {{render_input2("txtCantCajas","Cantidad de cajas a dibujar")}}
-            <button type="button" class="btn btn-default btn-primary" id="btnProcesar">
+        <div class="controls text-center">
+            <div class="control-group">
+                <label for="txtCantCajas" class="control-label">Cajas:</label>
+                <div class="controls">
+                    <input class="color" type="text" name="txtCantCajas" placeholder="Introduzca el número de cajas a dibujar" required>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-default btn-primary">
                 <i class="icon-book icon-white"></i> Procesar
             </button>
+            <a class="btn btn-default btn-primary" type="button" href="cajasD">Reiniciar</a> <br> <br>
         </div>
-    </div>
-
-    <div class="control_group">
+    </div> <br>
+</form>
+    <div class="control_group divs">
         <div class="controls">
-            <div id="txtResultado">
+            <div class="text-center">
+                {% if cant > 0 %}
+                <form action="cajasDDib" method="POST">
+                    {%from "_macros.html" import render_input2%}
 
+                    {% for i in range(1, cant+1) %}
+                        {{render_input2(i)}}
+                    {% endfor %}
+                    <div class="controls">
+                        <input value={{cant}} name="txtNum"  hidden>
+                        <button type="submit" class="btn btn-default btn-success">
+                            <i class="icon-book icon-white"></i> Calcular
+                        </button>
+                    </div>
+                </form>
+                {% endif %}
             </div>
         </div>
     </div>
-    </div>    
-</form>
 
-<script>
-    boton = document.getElementById("btnProcesar");
-
-   boton.addEventListener("click", cajas)
-   function cajas()
-   {
-       cantC = document.getElementById("txtCantCajas");
-       let resultado = document.getElementById("txtResultado");
-
-       cantC = parseInt(cantC);
-        alert(cantC)
-       for (i = 0; i <= cantC; i++) {
-           resultado.innerHTML += ' <input type="number" name="txtNum1" placeholder="Introduce un número" value="">'
-       }
-   }
-
-</script>
 
 {% endblock %}

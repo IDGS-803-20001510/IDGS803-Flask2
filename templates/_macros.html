@@ -19,13 +19,13 @@
 
 {% endmacro %}
 
-{% macro render_input2(name, placeholder, type="number") %}
+{% macro render_input2(cant) %}
 
-<div class="control-group">
-    <label for="{{name}}" class="control-label">Cajas:</label>
-    <div class="controls">
-        <input type="{{type}}" name="txtNum1" placeholder="{{placeholder}}" value="">
+    <div class="control-group">
+        <label for="caja{{cant}}" class="control-label">Número: {{cant}}</label>
+        <div class="controls">
+            <input type="number" name="caja{{cant}}" placeholder="Introduzca un número" required>
+        </div>
     </div>
-</div>
 
 {%endmacro%}

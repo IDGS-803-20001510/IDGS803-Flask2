@@ -11,10 +11,24 @@
         body {
             padding-top: 60px;
             padding-left: 20px;
+            padding-right: 20px;
+            color: blue;
         }
 
         .tr-head {
             background: #ddf0d8;
+        }
+
+        .divs {
+            border-color: gray;
+            border-width: 1px;
+            border-style: solid;
+            border-color: green;
+            background-color: yellow;
+        }
+
+        .color{
+            background-color: magenta;
         }
     </style>
     <link rel="stylesheet" href="../static/bootstrap/css/bootstrap-responsive.min.css">
@@ -25,32 +39,22 @@
         <div class="navbar-inner">
             <div class="container">
                 <a href="" class="brand">
+                    <img src="../static/img/Utl logo.jpg" height="50px" width="50 px" alt="">
                     UTL-IDGS
                 </a>
-                <ul class="nav">
+                <ul class="nav" style="float: right;">
                     <li>
-                        <a href="">
-                            <i class="icon-home icon-white"></i>
-                            Inicio
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
+                        <a>
                             <i class="icon-user icon-white"></i>
-                            Usuarios
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <i class="icon-user icon-white"></i>
-                            Alumnos
+                            Alexis Alfredo Prado Ojeda
                         </a>
                     </li>
                 </ul>
+                
             </div>
         </div>
-    </div>
-    <div class="container">
+    </div> <br> <br>
+    <div class="container ">
 
     </div>
      {% block content %}
