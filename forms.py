@@ -32,9 +32,14 @@ class LoginForm(Form):
     ])
 
 class Diccionario(Form):
-    Español = StringField("Español", [
+    espanol = StringField("Español:", [
         validators.DataRequired(message= "El campo es requerido"),
     ])
-    Ingles = StringField("Ingles", [
+    ingles = StringField("Ingles:", [
         validators.DataRequired(message= "El campo es requerido"),
     ])
+    palabra = StringField("Palabra a buscar:", [
+        validators.DataRequired(message= "El campo es requerido"),
+    ])
+
+

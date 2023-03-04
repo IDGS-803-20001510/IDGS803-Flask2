@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.min.css">
+
     <title>Document</title>
     <style>
         body {
@@ -28,8 +29,16 @@
         }
 
         .color{
-            background-color: magenta;
+            background-color: orangered;
         }
+
+        #celda-banda1 {
+            background-color: var(--celda-color);
+        }
+        .color-select option[value="{{ banda1 }}"] {background-color: {{ banda1 }};}
+        .color-select option[value="{{ banda2 }}"] {background-color: {{ banda2 }};}
+        .color-select option[value="{{ banda3 }}"] {background-color: {{ banda3 }};}
+
     </style>
     <link rel="stylesheet" href="../static/bootstrap/css/bootstrap-responsive.min.css">
 </head>

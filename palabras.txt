@@ -1,0 +1,4 @@
+Hola:Hi
+Rojo:Red
+Anillo:Ring
+Carro:Car
