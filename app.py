@@ -88,11 +88,12 @@ def DiccionarioV():
             for linea in archivo:
                 clave, valor = linea.strip().split(":")
                 palabras[clave] = valor   
-           
 
             if request.form.get("idioma") == "espanol":
+                # establecer el cutoff para el idioma español
+                cutoff = 0.50
                 # buscar las palabras más cercanas en el diccionario
-                matches = difflib.get_close_matches(palabra, palabras.values())
+                matches = difflib.get_close_matches(palabra, palabras.values(), cutoff=cutoff)
                 if matches:
                     # usar la primera palabra coincidente como clave
                     clave = next(key for key, value in palabras.items() if value == matches[0])
@@ -100,15 +101,20 @@ def DiccionarioV():
                 else:
                     return render_template("Actividad2-Diccionario.html", form=palabras_form, palabra="No se encontro la palabra")
                 
-        if request.form.get("idioma") == "ingles":
-            # buscar las palabras más cercanas en el diccionario
-            matches = difflib.get_close_matches(palabra, palabras.keys())
-            if matches:
-                # usar la primera palabra coincidente como valor
-                valor = palabras[matches[0]]
-                return render_template("Actividad2-Diccionario.html", form=palabras_form, palabra=valor)
-            else:
-                return render_template("Actividad2-Diccionario.html", form=palabras_form, palabra="No se encontro la palabra")
+            elif request.form.get("idioma") == "ingles":
+                # establecer el cutoff para el idioma inglés
+                cutoff = 0.80
+                # buscar las palabras más cercanas en el diccionario
+                matches = difflib.get_close_matches(palabra, palabras.keys(), cutoff=cutoff)
+                if matches:
+                    # usar la primera palabra coincidente como valor
+                    valor = palabras[matches[0]]
+                    return render_template("Actividad2-Diccionario.html", form=palabras_form, palabra=valor)
+                else:
+                    return render_template("Actividad2-Diccionario.html", form=palabras_form, palabra="No se encontro la palabra")
+            
+    return render_template("Actividad2-Diccionario.html", form=palabras_form)
+
 
 
 class Seleccion(FlaskForm):
